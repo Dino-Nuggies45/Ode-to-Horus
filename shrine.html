@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="shrine-body">
+    <nav class="navbar">
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navMenu">
+            <li><a href="story.html">Story</a></li>
+            <li><a href="symbols.html">Symbols</a></li>
+            <li><a href="domains.html">Domains</a></li>
+        </ul>
+    </nav>
+
+    <div class="shrine-container">
+        <img src="images/eye-of-horus.png" alt="Eye of Horus" class="object" id="eye">
+        <img src="images/scarab.png" alt="Scarab" class="object" id="scarab">
+        <img src="images/falcon.png" alt="Falcon" class="object" id="falcon">
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
