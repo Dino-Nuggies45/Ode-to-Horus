@@ -7,7 +7,7 @@ body {
     align-items: center;
     background: radial-gradient(circle at top, #1b1b2f, #0f0f1a);
     font-family: Georgia, serif;
-    color: gold;
+    color: #b2a52c;
     overflow: hidden;
     background: url("images/temple-bg.jpg") no-repeat center center fixed;
     background-size: cover;
@@ -24,6 +24,7 @@ header.welcome-text h1 {
 }
 
 .welcome-text p {
+    text-align: center;
     font-size: 1.2rem;
 }
 
@@ -40,9 +41,9 @@ header.welcome-text h1 {
 .door {
     width: 50%;
     height: 100%;
-    background: linear-gradient(to bottom, #c4a646, #8b6f29);
-    border: 3px solid #654321;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5); 
+    background: #c07b30;
+    border: 3px solid #c07b30;
+    box-shadow: inset 0 0 10px rgb(66,28,7); 
     transition: transform 2s ease;
     cursor: pointer;
 }
@@ -59,19 +60,20 @@ header.welcome-text h1 {
 .handle {
     width: 30px;
     height: 30px;
-    background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b);
+    background: radial-gradient(circle at 30% 30%, #d49955, #bb874b);
     border-radius: 50%;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+   
 }
 
 .left-door .handle {
-    right: 10px;
+    left: calc(100% - 40px);
+
 }
 
 .right-door .handle {
-    left: 10px;
+    right: calc(100% - 40px);
 }
 
 .open-left {
