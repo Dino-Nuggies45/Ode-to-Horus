@@ -102,7 +102,11 @@ header.welcome-text h1 {
 .hamburger {
     font-size: 2rem;
     cursor: pointer;
-    color: gold
+    color: gold;
+    background: rgba(0,0,0,0.6);
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.2s
 }
 
 .nav-links {
@@ -127,20 +131,46 @@ header.welcome-text h1 {
     display: flex;
 }
 
-.shrine-content {
+.shrine-container {
+    padding-top: 50px;
     text-align: center;
-    padding-top: 80;
 }
 
-.shrine-content h1 {
-    font-size: 1.8rem;
+.shrine-container h1 {
+    font-size: 2.5rem;
     color: gold;
     text-shadow: 1px 1px 3px black;
-    margin-bottom: 30px;
+    margin-bottom: 20px 0;
+    text-align: center;
 }
 
+.object-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100vw;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+#evil-eye div {
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
 .object {
-    width: 180;
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
     cursor: pointer;
     transition: transform 0.3s, filter 0.3s;
 }
@@ -148,6 +178,24 @@ header.welcome-text h1 {
 .object:hover {
     transform: scale(1.1);
     filter: brightness(1.4);
+}
+
+.shrine-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 40px;
+    padding: 20px;
+    width: 90%;
+    scrollbar-width: thin;
+}
+
+.shrine-scroll::-webkit-scrollbar {
+    height: 8px
+}
+
+.shrine-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.7);
+    border-radius: 4px;
 }
 
 .modal {

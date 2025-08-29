@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="shrine-body">
+
     <nav class="navbar">
         <div class="hamburger" onclick="toggleMenu()">☰</div>
         <ul class="nav-links" id="navMenu">
@@ -16,31 +17,20 @@
         </ul>
     </nav>
 
-    <div class="shrine-content">
+    <div class="shrine-container">
         <h1>Click what shrine object you want to inspect</h1>
 
-    <div class="object-row">
-        <img src="images/Eye of Horus.png" alt="Eye of Horus" class="object" id="eye">
-    </div>
-    <div class="object-row">
-        <img src="images/scarab.png" alt="Scarab" class="object" id="scarab">
-    </div>
-    <div class="object-row"></div>
-        <img src="images/falcon.png" alt="Falcon" class="object" id="falcon">
-    </div>
-    <div class="object-row"></div>
-        <img src="images/Evil eye.png" alt="Evil eye" class="object" id="evil eye">
-    </div>
-    <div class="object-row">
-        <img src="images/feather.png" alt="Feather" class="object" id="feather">
-    </div>
-    <div class="object-row">
-        <img src="images/ankh.png" alt="Ankh" class="object" id="ankh">
-    </div>
-    <div class="object-row">
-        <img src="images/Horus-statue.png" alt="Statue of Horus" class="object" id="Statue">
-    </div>
 
+        <div class="object-row">
+            <img src="images/Eye of Horus.png" alt="Eye of Horus" class="object" id="eye">
+            <img src="images/scarab.png" alt="Scarab" class="object" id="scarab">
+            <img src="images/falcon.png" alt="Falcon" class="object" id="falcon">
+            <img src="images/Evil eye.png" alt="Evil eye" class="object" id="evil eye">
+            <img src="images/feather.png" alt="Feather" class="object" id="feather">
+            <img src="images/ankh.png" alt="Ankh" class="object" id="ankh">
+            <img src="images/Horus-statue.png" alt="Statue of Horus" class="object" id="Statue">
+        </div>
+    </div>
     <div class="modal" id="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
