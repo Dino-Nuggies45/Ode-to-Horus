@@ -210,11 +210,21 @@ header.welcome-text h1 {
 }
 
 .modal-content {
-    background: white;
+    background: #c07b30;
     margin: 15% auto;
     padding: 20px;
     width: 50%;
     border-radius: 10px;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: gold;
+}
+
+.modal-content p {
+    text-align: center;
+    color: gold;
 }
 
 .close {
