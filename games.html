@@ -18,7 +18,14 @@
 <canvas id="gameCanvas" width="400" height="600"></canvas>
 <div id="score">Score: 0</div>
 <button id="startBtn">Start Game</button>
-<audio id="song" src="song.mp3"></audio>
+<audio id="song" src="song1.mp3"></audio>
+
+<div id="gameOverScreen">
+    <h2 id="highscoreText"></h2>
+    <button id="homeBtn">Home</button>
+    <button id="retryBtn">Try Again</button>
+    <button id="pickSongBtn">Pick Another Song</button>
+</div>
 
 <script>
     const canvas = document.getElementById('gameCanvas');
@@ -33,9 +40,11 @@
 
     let activeNotes = []
     let spawnOffset = 2;
+    let gameLoopId = null
 
     const song = document.getElementById('song');
     const startBtn = document.getElementById('startBtn');
+    const gameOverScreen = document.getElementById('gameOverScreen')
 
     startBtn.addEventListener('click', () => {
         song.play().then(() => {
@@ -58,6 +67,33 @@
             }
         }
 
+    });
+
+    song.addEventListener('ended', () => {
+        cancelAnimationFrame(gameLoopId);
+        canvas.style.display = 'none';
+        gameOverScreen.style.display = 'block';
+        
+        let highscore = localStorage.getItem('rhythmHighScore') || 0;
+
+        if(score > highscore){
+            highscoreText.textContent = `Congrats! our new highscore is ${score}`;
+            localStorage.setItem('rhythmHighscore', score);
+        } else {
+            highscoreText.textContent = `Your highscore is ${highscore}. You scored ${score}`;
+        }
+    });
+
+    document.getElementById('homeBtn').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+
+    document.getElementById('retryBtn').addEventListener('click', () => {
+        location.reload();
+    });
+
+    document.getElementById('pickSongBtn').addEventListener('click', () => {
+        window.location.href = 'songs.html';
     });
 
     let lastTime = null;
@@ -94,7 +130,7 @@
 
         activeNotes = activeNotes.filter(note => note.y < canvas.height);
 
-        requestAnimationFrame(gameLoop);
+        gameLoopId = requestAnimationFrame(gameLoop);
     }
 </script>
 </body>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=0.1">
+<title>Song Selection</title>
+<style>
+    body {
+        background: #111;
+        color: #fff;
+        font-family: sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        margin: 20px 0;
+    }
+
+    .song-card {
+        background: #222;
+        border: 2px solid #fff;
+        border-radius: 12px;
+        padding: 20px;
+        cursor: pointer;
+        position: relative;
+        transition: transform 0.2s, background 0.2s;
+    }
+
+    .song-card:hover {
+        transform: scale(1.05);
+        background: #333;
+    }
+
+    .song-card h2 {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .song-card audio {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<h1>Select a Song</h1>
+<div class="song-grid" id="songGrid">
+
+</div>
+
+<script>
+const songs = [
+    {name: "Crimson Pulse", file: "song1.mp3"},
+    {name: "Aurora Beat", file: "song2.mp3"}
+];
+
+const songGrid = document.getElementById('songGrid');
+
+songs.forEach((song, index) => {
+    const card = document.createElement('div');
+    card.classList.add('song-card');
+    card.innerHTML = `
+        <h2>${song.name}</h2>
+        <audio src="${song.file}" preload="auto"></audio>
+    `;
+
+    const audio = card.querySelector('audio');
+
+    card.addEventListener('mouseenter', () => {
+        audio.currentTime = 0;
+        audio.volume = 0.3;
+        audio.play();
+    });
+
+    card.addEventListener('mouseleave', () => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+
+    card.addEventListener('click', () => {
+        localStorage.setItem('selectedSong', song.file);
+        if(song.file === "song1.mp3") {
+            window.location.href = "games.html"
+        } else if(song.file === "song2.mp3") {
+            window.location.href = "games2.html"
+        }
+    });
+
+    songGrid.appendChild(card);
+})
+</script>
+</body>
+</html>
